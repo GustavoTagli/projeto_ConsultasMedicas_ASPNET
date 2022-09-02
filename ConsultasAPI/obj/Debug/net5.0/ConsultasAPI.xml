@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsultasAPI</name>
+    </assembly>
+    <members>
+        <member name="T:ConsultasAPI.Src.Contextos.ConsultasMedicasContexto">
+            <summary>
+            <para>Resumo: Classe contexto, responsável por carregar contexto e definir dBSets</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.ConsultaControlador.AgendarConsultaAsync(ConsultasAPI.Src.Modelos.Consulta)">
+            <summary>
+            Marcar Consulta
+            </summary>
+            <param name="consulta">Construtor para criar consulta</param>
+            <returns>ActionResult</returns>
+            <remarks>
+            Exemplo de requisição:
+            
+            POST /api/Consultas
+            {
+            "data": "01/01",
+            "hora": "12:00",
+            "medico": {
+                 "id": 1
+                },
+            "paciente": {
+                 "id": 1
+                }
+            }
+            </remarks>
+            <response code="201">Retorna a postagem criada</response>
+            <response code="401">Horário não disponível</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.ConsultaControlador.PegarConsultasMarcadasMedicoAsync(System.Int32)">
+            <summary>
+            Pegar Consultas do Medico pelo Id
+            </summary>
+            <param name="idMedico">Id do medico</param>
+            <returns>ActionResult</returns>
+            <response code="200">Retorna as consultas marcadas</response>
+            <response code="204">Nenhuma consulta marcada</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.ConsultaControlador.PegarConsultasMarcadasPacienteAsync(System.Int32)">
+            <summary>
+            Pegar Consultas do Paciente pelo Id
+            </summary>
+            <param name="idPaciente">Id do paciente</param>
+            <returns>ActionResult</returns>
+            <response code="200">Retorna as consultas marcadas</response>
+            <response code="204">Nenhuma consulta marcada</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.MedicoControlador.NovoMedicoAsync(ConsultasAPI.Src.Modelos.Medico)">
+            <summary>
+            Cadastrar novo Medico
+            </summary>
+            <param name="medico">Construtor para cadastrar medico</param>
+            <returns>ActionResult</returns>
+            <remarks>
+            Exemplo de requisição:
+            
+            POST /api/Medicos
+            {
+            "nome": "Gustavo",
+            "email": "gustavo@domain.com",
+            "senha": "123456",
+            }
+            </remarks>
+            <response code="201">Retorna medico cadastrado</response>
+            <response code="401">E-mail já cadastrado</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.MedicoControlador.PegarTodosMedicosAsync">
+            <summary>
+            Pegar todos os Medicos
+            </summary>
+            <returns>ActionResult</returns>
+            <response code="200">Retorna medicos</response>
+            <response code="204">Nenhum medico cadastrado</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.PacienteControlador.CadastrarPacienteAsync(ConsultasAPI.Src.Modelos.Paciente)">
+            <summary>
+            Cadastrar Paciente
+            </summary>
+            <param name="paciente">Construtor para cadastrar paciente</param>
+            <returns>ActionResult</returns>
+            <remarks>
+            Exemplo de requisição:
+            
+            POST /api/Pacientes
+            {
+            "nome": "Gustavo",
+            "email": "gustavo@domain.com",
+            "senha": "123456",
+            "telefone": "99999999999"
+            "documento": "99999999999"
+            }
+            </remarks>
+            <response code="201">Retorna paciente cadastrado</response>
+            <response code="401">Email já cadastrado</response>
+        </member>
+        <member name="M:ConsultasAPI.Src.Controladores.PacienteControlador.PegarTodosPacientesAsync">
+            <summary>
+            Pegar todos Pacientes
+            </summary>
+            <returns>ActionResult</returns>
+            <response code="200">Retorna pacientes</response>
+            <response code="204">Nenhum paciente cadastrado</response>
+        </member>
+        <member name="T:ConsultasAPI.Src.Modelos.Consulta">
+            <summary>
+            <para>Resumo: Classe responsavel por representar tb_consultas no banco.</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Modelos.Medico">
+            <summary>
+            <para>Resumo: Classe responsavel por representar tb_medicos no banco.</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Modelos.Paciente">
+            <summary>
+            <para>Resumo: Classe responsavel por representar tb_pacientes no banco.</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Repositorios.IConsulta">
+            <summary>
+            <para>Resumo: Responsavel por representar ações de CRUD de consulta</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Repositorios.IMedico">
+            <summary>
+            <para>Resumo: Responsavel por representar ações de CRUD de medico</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Repositorios.Implementacoes.ConsultaRepositorio">
+            <summary>
+            <para>Resumo: Classe responsavel por implementar IConsulta</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.ConsultaRepositorio.AgendarConsultaAsync(ConsultasAPI.Src.Modelos.Consulta)">
+            <summary>
+            <para>Resumo: Método assíncrono para marcar consultas</para>
+            </summary>
+            <param name="consulta">Construtor para agendar consulta</param>
+            <exception cref="T:System.Exception">Id não pode ser nulo</exception>
+            <exception cref="T:System.Exception">Horário da consulta não pode ser não nulo</exception>
+        </member>
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.ConsultaRepositorio.PegarConsultasMarcadasMedicoAsync(System.Int32)">
+            <summary>
+            <para>Resumo: Método assíncrono para pegar constulas marcadas com o médico</para>
+            </summary>
+            <param name="idMedico">Id do medico</param>
+        </member>
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.ConsultaRepositorio.PegarConsultasMarcadasPacienteAsync(System.Int32)">
+            <summary>
+            <para>Resumo: Método assíncrono para pegar consultas do paciente</para>
+            </summary>
+            <param name="idPaciente">Id do paciente</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:ConsultasAPI.Src.Repositorios.Implementacoes.MedicoRepositorio" -->
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.MedicoRepositorio.NovoMedicoAsync(ConsultasAPI.Src.Modelos.Medico)">
+            <summary>
+            <para>Resumo: Método assíncrono para cadastrar novo médico</para>
+            </summary>
+            <param name="medico">Construtor para cadastrar medico</param>
+            <exception cref="T:System.Exception">E-mail tem que ser nulo</exception>
+        </member>
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.MedicoRepositorio.PegarTodosMedicosAsync">
+            <summary>
+            <para>Resumo: Método assíncrono para pegar todos os médicos</para>
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:ConsultasAPI.Src.Repositorios.Implementacoes.PacienteRepositorio" -->
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.PacienteRepositorio.CadastrarPacienteAsync(ConsultasAPI.Src.Modelos.Paciente)">
+            <summary>
+            <para>Resumo: Método assíncrono para cadastrar paciente</para>
+            </summary>
+            <param name="paciente">Construtor para cadastrar paciente</param>
+            <exception cref="T:System.Exception">E-mail tem que ser nulo</exception>
+        </member>
+        <member name="M:ConsultasAPI.Src.Repositorios.Implementacoes.PacienteRepositorio.PegarTodosPacientesAsync">
+            <summary>
+            <para>Resumo: Método assíncrono para pegar todos os pacientes</para>
+            </summary>
+        </member>
+        <member name="T:ConsultasAPI.Src.Repositorios.IPaciente">
+            <summary>
+            <para>Resumo: Responsavel por representar ações de CRUD de paciente</para>
+            <para>Criado por: Gustavo</para>
+            <para>Versão: 1.0</para>
+            <para>Data: 25/08/2022</para>
+            </summary>
+        </member>
+    </members>
+</doc>
