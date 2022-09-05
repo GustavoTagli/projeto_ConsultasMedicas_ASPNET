@@ -13,6 +13,7 @@ namespace ConsultasAPI.Src.Repositorios.Implementacoes
     /// <para>Criado por: Gustavo</para>
     /// <para>Versão: 1.0</para>
     /// <para>Data: 25/08/2022</para>
+    /// </summary>
     public class PacienteRepositorio : IPaciente
     {
         #region Atributos
