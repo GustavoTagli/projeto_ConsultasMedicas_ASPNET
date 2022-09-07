@@ -45,9 +45,9 @@ namespace ConsultasAPI.Src.Repositorios.Implementacoes
         /// <exception cref="Exception">Horário da consulta não pode ser não nulo</exception>
         public async Task AgendarConsultaAsync(Consulta consulta)
         {
-            if (MedicoExiste(consulta.Medico.Id))
+            if (!MedicoExiste(consulta.Medico.Id))
                 throw new Exception("Id do médico não encontrado");
-            if (PacienteExiste(consulta.Paciente.Id))
+            if (!PacienteExiste(consulta.Paciente.Id))
                 throw new Exception("Id do paciente não encontrado");
             if (ConsultaExisteMedico(consulta))
                 throw new Exception("Médico já possui uma consulta marcada para este horario");
